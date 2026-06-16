@@ -20,15 +20,17 @@ background:#f8fafc;
 }
 
 /* MENU */
-
 .menu-btn{
 position:fixed;
 top:15px;
 left:15px;
-font-size:30px;
+font-size:28px;
 cursor:pointer;
 z-index:1000;
-color:white;
+background:white;
+padding:8px 12px;
+border-radius:8px;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
 
 .sidebar{
@@ -60,10 +62,10 @@ position:absolute;
 top:10px;
 right:20px;
 font-size:35px;
+color:white;
 }
 
 /* HERO */
-
 .hero{
 min-height:100vh;
 display:flex;
@@ -77,45 +79,31 @@ padding:20px;
 }
 
 .hero h1{
-font-size:50px;
-margin-bottom:25px;
-animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(-30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+font-size:45px;
+margin-bottom:20px;
 }
 
 .profile img{
-width:200px;
-height:200px;
+width:180px;
+height:180px;
 border-radius:50%;
 border:5px solid white;
-box-shadow:0 0 30px rgba(255,255,255,0.4);
 object-fit:cover;
 }
 
 .name{
-font-size:35px;
+font-size:32px;
 font-weight:bold;
-margin-top:20px;
+margin-top:15px;
 }
 
 .subtitle{
-margin-top:10px;
-font-size:18px;
+margin-top:8px;
+font-size:16px;
 color:#dbeafe;
 }
 
 /* CONTENT */
-
 .content{
 display:none;
 width:90%;
@@ -132,22 +120,13 @@ color:#1e3a8a;
 margin-bottom:15px;
 }
 
-.content ul{
-padding-left:20px;
-}
-
-.content li{
-margin:10px 0;
-}
-
 /* SKILLS */
-
 .bar{
 width:100%;
 height:12px;
 background:#e2e8f0;
 border-radius:20px;
-margin-bottom:20px;
+margin-bottom:15px;
 overflow:hidden;
 }
 
@@ -158,14 +137,13 @@ border-radius:20px;
 }
 
 /* BUTTON */
-
 .resume-btn{
 display:inline-block;
-padding:14px 30px;
-background:linear-gradient(135deg,#2563eb,#1e40af);
+padding:12px 25px;
+background:#2563eb;
 color:white;
 text-decoration:none;
-border-radius:50px;
+border-radius:30px;
 margin-top:15px;
 font-weight:bold;
 }
@@ -175,7 +153,6 @@ opacity:0.9;
 }
 
 /* FOOTER */
-
 footer{
 background:#0f172a;
 color:white;
@@ -196,10 +173,8 @@ margin-top:40px;
 
 <a href="#" onclick="showSection('about')">About Me</a>
 <a href="#" onclick="showSection('education')">Education</a>
-<a href="#" onclick="showSection('hobbies')">Hobbies</a>
 <a href="#" onclick="showSection('skills')">Skills</a>
 <a href="#" onclick="showSection('contact')">Contact</a>
-
 </div>
 
 <div class="hero">
@@ -207,64 +182,55 @@ margin-top:40px;
 <h1>Welcome to Varsha's Website</h1>
 
 <div class="profile">
-<img src="logo.png" alt="VS Logo">
+<img src="logo.png" alt="Profile">
 </div>
 
 <div class="name">Varsha Sehrawat</div>
-
-<div class="subtitle">
-Future Web Developer | B.Com Graduate
-</div>
+<div class="subtitle">Future Web Developer | B.Com Graduate</div>
 
 </div>
 
+<!-- ABOUT -->
 <div id="about" class="content">
 <h2>About Me</h2>
-<p>
-Hello! I am Varsha Sehrawat. I am passionate about learning Web Development and creating modern websites.
-</p>
+<p>Hello! I am Varsha Sehrawat. I love learning web development and building modern websites.</p>
 </div>
 
+<!-- EDUCATION -->
 <div id="education" class="content">
 <h2>Education</h2>
 <p>Bachelor of Commerce (B.Com)</p>
 </div>
 
-<div id="hobbies" class="content">
-<h2>Hobbies</h2>
-<ul>
-<li>Learning New Skills</li>
-<li>Reading</li>
-<li>Listening to Music</li>
-<li>Exploring Technology</li>
-</ul>
-</div>
-
+<!-- SKILLS -->
 <div id="skills" class="content">
 <h2>Skills</h2>
 
 <p>HTML</p>
-<div class="bar">
-<div class="fill" style="width:75%"></div>
-</div>
+<div class="bar"><div class="fill" style="width:80%"></div></div>
 
 <p>CSS</p>
-<div class="bar">
-<div class="fill" style="width:65%"></div>
-</div>
+<div class="bar"><div class="fill" style="width:70%"></div></div>
 
 <p>GitHub</p>
-<div class="bar">
-<div class="fill" style="width:70%"></div>
-</div>
+<div class="bar"><div class="fill" style="width:75%"></div></div>
 
 </div>
 
+<!-- CONTACT -->
 <div id="contact" class="content">
 <h2>Contact</h2>
 
 <p>Email: varshasehrawat05082005@gmail.com</p>
 
+<p>
+LinkedIn:
+<a href="https://www.linkedin.com/in/varsha-sehrawat-b52428414?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+Visit Profile
+</a>
+</p>
+
+<!-- RESUME DOWNLOAD -->
 <a href="Varsha's resume (1).pdf" download class="resume-btn">
 📄 Download Resume
 </a>
@@ -289,12 +255,11 @@ function showSection(id){
 
 let sections=document.querySelectorAll(".content");
 
-sections.forEach(function(section){
-section.style.display="none";
+sections.forEach(sec=>{
+sec.style.display="none";
 });
 
 document.getElementById(id).style.display="block";
-
 closeNav();
 
 window.scrollTo({
@@ -303,6 +268,11 @@ behavior:'smooth'
 });
 
 }
+
+// default section
+window.onload = function(){
+showSection("about");
+};
 
 </script>
 
