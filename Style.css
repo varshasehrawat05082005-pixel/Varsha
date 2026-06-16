@@ -1,7 +1,16 @@
-body{
-    background:pink;
+.resume-btn{
+    display:inline-block;
+    background:#1e3a8a;
+    color:white;
+    text-decoration:none;
+    padding:12px 24px;
+    border-radius:8px;
+    margin-top:15px;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-h1{
-    color:purple;
+.resume-btn:hover{
+    background:#2563eb;
+    transform:scale(1.05);
 }
