@@ -6,119 +6,184 @@
 <title>Varsha Sehrawat | Portfolio</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#f4f6f9;
+background:#f8fafc;
 }
 
-/* Menu */
+/* MENU */
+
 .menu-btn{
-    position:fixed;
-    top:15px;
-    left:15px;
-    font-size:28px;
-    cursor:pointer;
-    z-index:1000;
+position:fixed;
+top:15px;
+left:15px;
+font-size:30px;
+cursor:pointer;
+z-index:1000;
+color:white;
 }
 
 .sidebar{
-    height:100%;
-    width:0;
-    position:fixed;
-    top:0;
-    left:0;
-    background:#0f172a;
-    overflow-x:hidden;
-    transition:0.4s;
-    padding-top:60px;
+height:100%;
+width:0;
+position:fixed;
+top:0;
+left:0;
+background:#0f172a;
+overflow-x:hidden;
+transition:0.4s;
+padding-top:60px;
+z-index:999;
 }
 
 .sidebar a{
-    display:block;
-    color:white;
-    padding:15px 25px;
-    text-decoration:none;
+display:block;
+padding:15px 25px;
+color:white;
+text-decoration:none;
 }
 
 .sidebar a:hover{
-    background:#1e3a8a;
+background:#1e3a8a;
 }
 
 .closebtn{
-    position:absolute;
-    top:10px;
-    right:20px;
-    font-size:30px;
+position:absolute;
+top:10px;
+right:20px;
+font-size:35px;
 }
 
-/* Home */
+/* HERO */
+
 .hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+padding:20px;
 }
 
 .hero h1{
-    color:#1e3a8a;
-    margin-bottom:30px;
+font-size:50px;
+margin-bottom:25px;
+animation:fadeIn 2s ease;
 }
 
-.profile{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:#dbeafe;
-    border:5px solid #1e3a8a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:18px;
-    color:#1e3a8a;
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.profile img{
+width:200px;
+height:200px;
+border-radius:50%;
+border:5px solid white;
+box-shadow:0 0 30px rgba(255,255,255,0.4);
+object-fit:cover;
 }
 
 .name{
-    margin-top:20px;
-    font-size:30px;
-    font-weight:bold;
+font-size:35px;
+font-weight:bold;
+margin-top:20px;
 }
 
 .subtitle{
-    color:gray;
-    margin-top:10px;
+margin-top:10px;
+font-size:18px;
+color:#dbeafe;
 }
 
-/* Sections */
-section{
-    width:90%;
-    max-width:900px;
-    margin:20px auto;
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+/* CONTENT */
+
+.content{
+display:none;
+width:90%;
+max-width:900px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-h2{
-    color:#1e3a8a;
-    margin-bottom:15px;
+.content h2{
+color:#1e3a8a;
+margin-bottom:15px;
 }
 
-ul{
-    padding-left:20px;
+.content ul{
+padding-left:20px;
 }
 
-li{
-    margin:8px 0;
+.content li{
+margin:10px 0;
 }
+
+/* SKILLS */
+
+.bar{
+width:100%;
+height:12px;
+background:#e2e8f0;
+border-radius:20px;
+margin-bottom:20px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#2563eb,#60a5fa);
+border-radius:20px;
+}
+
+/* BUTTON */
+
+.resume-btn{
+display:inline-block;
+padding:14px 30px;
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+text-decoration:none;
+border-radius:50px;
+margin-top:15px;
+font-weight:bold;
+}
+
+.resume-btn:hover{
+opacity:0.9;
+}
+
+/* FOOTER */
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
 </style>
 </head>
 
@@ -126,55 +191,46 @@ li{
 
 <div class="menu-btn" onclick="openNav()">☰</div>
 
-<div id="mySidebar" class="sidebar">
+<div id="sidebar" class="sidebar">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
-<a href="#home">Home</a>
-<a href="#about">About Me</a>
-<a href="#qualification">Qualification</a>
-<a href="#education">Education</a>
-<a href="#hobbies">Hobbies</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
+<a href="#" onclick="showSection('about')">About Me</a>
+<a href="#" onclick="showSection('education')">Education</a>
+<a href="#" onclick="showSection('hobbies')">Hobbies</a>
+<a href="#" onclick="showSection('skills')">Skills</a>
+<a href="#" onclick="showSection('contact')">Contact</a>
+
 </div>
 
-<div class="hero" id="home">
+<div class="hero">
 
 <h1>Welcome to Varsha's Website</h1>
 
 <div class="profile">
-<div class="profile">
-<img src="logo.png" alt="VS Logo"
-style="width:180px;height:180px;border-radius:50%;object-fit:cover;">
-    </div>
+<img src="logo.png" alt="VS Logo">
 </div>
 
 <div class="name">Varsha Sehrawat</div>
 
 <div class="subtitle">
-B.Com Graduate | Learning Web Development
+Future Web Developer | B.Com Graduate
 </div>
 
 </div>
 
-<section id="about">
+<div id="about" class="content">
 <h2>About Me</h2>
 <p>
-Hello! I am Varsha. I am passionate about learning web development and creating beautiful websites.
+Hello! I am Varsha Sehrawat. I am passionate about learning Web Development and creating modern websites.
 </p>
-</section>
+</div>
 
-<section id="qualification">
-<h2>Qualification</h2>
-<p>Bachelor of Commerce (B.Com)</p>
-</section>
-
-<section id="education">
+<div id="education" class="content">
 <h2>Education</h2>
-<p>Graduated in B.Com and currently learning Web Development.</p>
-</section>
+<p>Bachelor of Commerce (B.Com)</p>
+</div>
 
-<section id="hobbies">
+<div id="hobbies" class="content">
 <h2>Hobbies</h2>
 <ul>
 <li>Learning New Skills</li>
@@ -182,37 +238,79 @@ Hello! I am Varsha. I am passionate about learning web development and creating 
 <li>Listening to Music</li>
 <li>Exploring Technology</li>
 </ul>
-</section>
+</div>
 
-<section id="skills">
+<div id="skills" class="content">
 <h2>Skills</h2>
-<ul>
-<li>Communication Skills</li>
-<li>Team Work</li>
-<li>Computer Skills</li>
-<li>MS Office</li>
-<li>HTML & CSS (Learning)</li>
-</ul>
-</section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: varshasehrawat05082005@gmail.com</p>
-    <p>Location: Haryana, India</p>
+<p>HTML</p>
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
 
-    <a href="varsha's resume (1).pdf" download class="resume-btn">
-        📄 Download Resume
-    </a>
-</section>
+<p>CSS</p>
+<div class="bar">
+<div class="fill" style="width:65%"></div>
+</div>
+
+<p>GitHub</p>
+<div class="bar">
+<div class="fill" style="width:70%"></div>
+</div>
+
+</div>
+
+<div id="contact" class="content">
+<h2>Contact</h2>
+
+<p>Email: varshasehrawat05082005@gmail.com</p>
+
+<p>
+GitHub:
+<a href="https://github.com/varshasehrawat05082005-pixel">
+Visit Profile
+</a>
+</p>
+
+<a href="Varsha's resume (1).pdf" download class="resume-btn">
+📄 Download Resume
+</a>
+
+</div>
+
+<footer>
+Designed & Developed by Varsha Sehrawat
+</footer>
 
 <script>
+
 function openNav(){
-document.getElementById("mySidebar").style.width="250px";
+document.getElementById("sidebar").style.width="250px";
 }
 
 function closeNav(){
-document.getElementById("mySidebar").style.width="0";
+document.getElementById("sidebar").style.width="0";
 }
+
+function showSection(id){
+
+let sections=document.querySelectorAll(".content");
+
+sections.forEach(function(section){
+section.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+closeNav();
+
+window.scrollTo({
+top:document.getElementById(id).offsetTop-20,
+behavior:'smooth'
+});
+
+}
+
 </script>
 
 </body>
